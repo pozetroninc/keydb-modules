@@ -13,3 +13,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: pozetroninc/keydb-timeseries
           dockerfile: timeseries.dockerfile
+          tags: latest
+          tag_with_ref: true
+          tag_with_sha: true
