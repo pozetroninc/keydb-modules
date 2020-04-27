@@ -24,6 +24,6 @@ jobs:
           repository: pozetroninc/keydb-timeseries
           dockerfile: timeseries.dockerfile
           build_args: KEY_DB_VERSION=${{ steps.keydb.outputs.release }}, REDIS_TIME_SERIES_VERSION=${{ steps.timeseries.outputs.release }}
-          tags: latest
+          tags: latest, ${{ steps.keydb.outputs.release }}_${{ steps.timeseries.outputs.release }}
           tag_with_ref: true
           tag_with_sha: true
