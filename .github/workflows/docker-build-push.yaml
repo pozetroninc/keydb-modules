@@ -1,5 +1,5 @@
 name: Build Docker Images
-on: [push]
+on: [push,repository_dispatch]
 
 jobs:
   build:
