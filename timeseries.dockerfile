@@ -3,7 +3,7 @@
 # https://redislabs.com/wp-content/uploads/2019/09/redis-source-available-license.pdf
 #----------------------------------------------------------------------------------------------
 # Versions
-ARG KEY_DB_VERSION=5.3.3
+ARG KEY_DB_VERSION=v5.3.3
 ARG REDIS_TIME_SERIES_VERSION=1.2.5
 
 #----------------------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ RUN git clone -b v${REDIS_TIME_SERIES_VERSION} --recursive https://github.com/Re
 
 #----------------------------------------------------------------------------------------------
 # Build KeyDB Image with Time Series Module
-FROM eqalpha/keydb:x86_64_v${KEY_DB_VERSION}
+FROM eqalpha/keydb:x86_64_${KEY_DB_VERSION}
 
 ENV LIBDIR /usr/lib/redis/modules
 RUN mkdir -p ${LIBDIR}
