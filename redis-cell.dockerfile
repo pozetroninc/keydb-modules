@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------------------------
-# This work is subject to the terms of the Redis Source Available License
-# https://redislabs.com/wp-content/uploads/2019/09/redis-source-available-license.pdf
+# This work is subject to the terms of the MIT License
+# https://github.com/brandur/redis-cell/blob/master/LICENSE
 #----------------------------------------------------------------------------------------------
 # Versions
 ARG KEY_DB_VERSION=v5.3.3
@@ -8,7 +8,7 @@ ARG REDIS_CELL_VERSION=v0.2.5
 
 ARG BUILD_BIN=/build/bin
 #----------------------------------------------------------------------------------------------
-# Build Redis Time Series module
+# Build Redis Cell module
 FROM debian:10.3-slim AS builder
 
 ARG BUILD_BIN

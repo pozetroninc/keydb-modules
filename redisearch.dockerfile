@@ -8,7 +8,7 @@ ARG REDISEARCH_VERSION=v1.6.13
 
 ARG BUILD_BIN=/build/bin
 #----------------------------------------------------------------------------------------------
-# Build Redis Time Series module
+# Build RediSearch module
 FROM debian:10.3-slim AS builder
 
 ARG BUILD_BIN
