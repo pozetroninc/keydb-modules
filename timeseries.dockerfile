@@ -4,7 +4,7 @@
 #----------------------------------------------------------------------------------------------
 # Versions
 ARG KEY_DB_VERSION=v5.3.3
-ARG REDIS_TIME_SERIES_VERSION=1.2.5
+ARG REDIS_TIME_SERIES_VERSION=v1.2.5
 
 #----------------------------------------------------------------------------------------------
 # Build Redis Time Series module
