@@ -16,7 +16,7 @@ ENV REDIS_TIME_SERIES_VERSION=${REDIS_TIME_SERIES_VERSION}
 WORKDIR /build
 
 RUN apt update && apt install -y git
-RUN git clone -b v${REDIS_TIME_SERIES_VERSION} --recursive https://github.com/RedisTimeSeries/RedisTimeSeries.git . && \
+RUN git clone -b ${REDIS_TIME_SERIES_VERSION} --recursive https://github.com/RedisTimeSeries/RedisTimeSeries.git . && \
     ./deps/readies/bin/getpy2 && \
     ./system-setup.py && \
     make build && \

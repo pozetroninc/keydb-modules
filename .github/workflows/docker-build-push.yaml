@@ -2,7 +2,26 @@ name: Build Docker Images
 on: [push,repository_dispatch]
 
 jobs:
-  build:
+  vanilla:
+    name: VanillaKeyDB
+    runs-on: ubuntu-latest
+    steps:
+      - id: keydb
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+            repository: JohnSully/KeyDB
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: pozetroninc/keydb
+          dockerfile: vanilla.dockerfile
+          build_args: KEY_DB_VERSION=${{ steps.keydb.outputs.release }}
+          tags: latest, ${{ steps.keydb.outputs.release }}
+          tag_with_ref: true
+          tag_with_sha: true
+  timeseries:
     name: RedisTimeSeries
     runs-on: ubuntu-latest
     steps:
