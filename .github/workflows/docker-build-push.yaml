@@ -21,28 +21,31 @@ jobs:
           tags: latest, ${{ steps.keydb.outputs.release }}
           tag_with_ref: true
           tag_with_sha: true
-  timeseries:
-    name: RedisTimeSeries
-    runs-on: ubuntu-latest
-    steps:
-      - id: keydb
-        uses: pozetroninc/github-action-get-latest-release@master
-        with:
-            owner: JohnSully
-            repo: KeyDB
-      - id: timeseries
-        uses: pozetroninc/github-action-get-latest-release@master
-        with:
-            owner: RedisTimeSeries
-            repo: RedisTimeSeries
-      - uses: actions/checkout@v2
-      - uses: docker/build-push-action@v1
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: pozetroninc/keydb-timeseries
-          dockerfile: timeseries.dockerfile
-          build_args: KEY_DB_VERSION=${{ steps.keydb.outputs.release }}, REDIS_TIME_SERIES_VERSION=${{ steps.timeseries.outputs.release }}
-          tags: latest, ${{ steps.keydb.outputs.release }}_${{ steps.timeseries.outputs.release }}
-          tag_with_ref: true
-          tag_with_sha: true
+  neo:
+      name: MatrixBuild
+      runs-on: ubuntu-latest
+      strategy:
+          matrix:
+              module: [RedisTimeSeries/RedisTimeSeries, ]
+              repository: [pozetroninc/keydb-timeseries, ]
+              dockerfile: [timeseries.dockerfile, ]
+      steps:
+        - id: keydb
+          uses: pozetroninc/github-action-get-latest-release@master
+          with:
+              repository: JohnSully/KeyDB
+        - id: module
+          uses: pozetroninc/github-action-get-latest-release@master
+          with:
+              repository: ${{ matrix.module }}
+        - uses: actions/checkout@v2
+        - uses: docker/build-push-action@v1
+          with:
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
+            repository: ${{ matrix.repository }}
+            dockerfile: ${{ matrix.dockerfile }}
+            build_args: KEY_DB_VERSION=${{ steps.keydb.outputs.release }}, REDIS_TIME_SERIES_VERSION=${{ steps.timeseries.outputs.release }}
+            tags: latest, ${{ steps.keydb.outputs.release }}_${{ steps.module.outputs.release }}
+            tag_with_ref: true
+            tag_with_sha: true
