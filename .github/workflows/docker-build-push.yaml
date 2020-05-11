@@ -29,6 +29,10 @@ jobs:
               module: [RedisTimeSeries/RedisTimeSeries, ]
               repository: [pozetroninc/keydb-timeseries, ]
               dockerfile: [timeseries.dockerfile, ]
+              include:
+                  - module: RedBeardLab/rediSQL
+                    repository: pozetroninc/keydb-redisql
+                    dockerfile: rediSQL.dockerfile
       steps:
         - id: keydb
           uses: pozetroninc/github-action-get-latest-release@master
