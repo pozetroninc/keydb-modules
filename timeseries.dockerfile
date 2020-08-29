@@ -3,8 +3,8 @@
 # https://redislabs.com/wp-content/uploads/2019/09/redis-source-available-license.pdf
 #----------------------------------------------------------------------------------------------
 # Versions
-ARG KEY_DB_VERSION=v5.3.3
-ARG REDIS_TIME_SERIES_VERSION=v1.2.5
+ARG KEY_DB_VERSION=v6.0.13
+ARG REDIS_TIME_SERIES_VERSION=v1.4.3
 
 #----------------------------------------------------------------------------------------------
 # Build Redis Time Series module
@@ -17,6 +17,7 @@ WORKDIR /build
 
 RUN apt update && apt install -y git
 RUN git clone -b ${REDIS_TIME_SERIES_VERSION} --recursive https://github.com/RedisTimeSeries/RedisTimeSeries.git . && \
+    git submodule update --recursive --init && \
     ./deps/readies/bin/getpy2 && \
     ./system-setup.py && \
     make build && \
