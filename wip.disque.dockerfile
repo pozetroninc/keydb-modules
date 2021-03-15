@@ -3,7 +3,7 @@
 # https://github.com/antirez/disque-module/blob/master/LICENSE
 #----------------------------------------------------------------------------------------------
 # Versions
-ARG KEY_DB_VERSION=v5.3.3
+ARG KEY_DB_VERSION=v6.0.16
 ARG DISQUE_RELEASE=master
 
 ARG BUILD_BIN=/build/bin
@@ -21,7 +21,7 @@ WORKDIR /build
 RUN mkdir -p ${BUILD_BIN}
 
 RUN apt update
-RUN apt install -y build-essential git 
+RUN apt install -y build-essential git
 
 # Disque
 RUN git clone -b ${DISQUE_RELEASE} https://github.com/antirez/disque-module.git && \

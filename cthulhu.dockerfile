@@ -3,7 +3,7 @@
 # https://github.com/sklivvz/cthulhu/blob/master/LICENSE
 #----------------------------------------------------------------------------------------------
 # Versions
-ARG KEY_DB_VERSION=v5.3.3
+ARG KEY_DB_VERSION=v6.0.16
 ARG CTHULHU_RELEASE=master
 
 ARG BUILD_BIN=/build/bin

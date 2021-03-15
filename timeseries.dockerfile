@@ -3,7 +3,7 @@
 # https://redislabs.com/wp-content/uploads/2019/09/redis-source-available-license.pdf
 #----------------------------------------------------------------------------------------------
 # Versions
-ARG KEY_DB_VERSION=v6.0.13
+ARG KEY_DB_VERSION=v6.0.16
 ARG REDIS_TIME_SERIES_VERSION=v1.4.3
 
 #----------------------------------------------------------------------------------------------

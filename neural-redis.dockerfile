@@ -3,7 +3,7 @@
 # https://github.com/antirez/neural-redis/blob/master/COPYING
 #----------------------------------------------------------------------------------------------
 # Versions
-ARG KEY_DB_VERSION=v5.3.3
+ARG KEY_DB_VERSION=v6.0.16
 ARG REDIS_NEURAL_RELEASE=master
 
 ARG BUILD_BIN=/build/bin
@@ -20,7 +20,7 @@ ENV BUILD_BIN=${BUILD_BIN}
 WORKDIR /build
 RUN mkdir -p ${BUILD_BIN}
 
-RUN apt update 
+RUN apt update
 RUN apt install -y build-essential git
 
 # Nerual Redis
@@ -44,4 +44,3 @@ COPY --from=builder ${BUILD_BIN}/* ${LIBDIR}/
 CMD ["keydb-server", \
     "--loadmodule", "/usr/lib/redis/modules/neuralredis.so", \
     "/etc/keydb/keydb.conf"]
-

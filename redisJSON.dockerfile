@@ -3,7 +3,7 @@
 # https://github.com/RedBeardLab/rediSQL/blob/master/LICENSE.txt
 #----------------------------------------------------------------------------------------------
 # Versions
-ARG KEY_DB_VERSION=v5.3.3
+ARG KEY_DB_VERSION=v6.0.16
 ARG REDISJSON_VERSION=v1.0.4
 
 ARG BUILD_BIN=/build/bin

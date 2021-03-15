@@ -3,7 +3,7 @@
 # https://github.com/brandur/redis-cell/blob/master/LICENSE
 #----------------------------------------------------------------------------------------------
 # Versions
-ARG KEY_DB_VERSION=v5.3.3
+ARG KEY_DB_VERSION=v6.0.16
 ARG REDIS_CELL_VERSION=v0.2.5
 
 ARG BUILD_BIN=/build/bin
@@ -45,4 +45,3 @@ COPY --from=builder ${BUILD_BIN}/* ${LIBDIR}/
 CMD ["keydb-server", \
     "--loadmodule", "/usr/lib/redis/modules/libredis_cell.so", \
     "/etc/keydb/keydb.conf"]
-

@@ -3,7 +3,7 @@
 # https://redislabs.com/wp-content/uploads/2019/09/redis-source-available-license.pdf
 #----------------------------------------------------------------------------------------------
 # Versions
-ARG KEY_DB_VERSION=v5.3.3
+ARG KEY_DB_VERSION=v6.0.16
 ARG REDIS_BLOOM_VERSION=v2.2.2
 
 ARG BUILD_BIN=/build/bin
@@ -21,7 +21,7 @@ WORKDIR /build
 RUN mkdir -p ${BUILD_BIN}
 
 RUN apt update
-RUN apt install -y build-essential git 
+RUN apt install -y build-essential git
 
 # Redis Bloom
 RUN git clone -b ${REDIS_BLOOM_VERSION} https://github.com/RedisBloom/RedisBloom.git && \
