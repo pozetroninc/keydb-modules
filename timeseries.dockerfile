@@ -18,7 +18,7 @@ WORKDIR /build
 RUN apt update && apt install -y git
 RUN git clone -b ${REDIS_TIME_SERIES_VERSION} --recursive https://github.com/RedisTimeSeries/RedisTimeSeries.git . && \
     git submodule update --recursive --init && \
-    ./deps/readies/bin/getpy2 && \
+    ./deps/readies/bin/getpy3 && \
     ./system-setup.py && \
     make build && \
     ls -ltr bin/
