@@ -8,7 +8,7 @@ ARG REDIS_TIME_SERIES_VERSION=v1.6.8
 
 #----------------------------------------------------------------------------------------------
 # Build Redis Time Series module
-FROM debian:10.8-slim AS builder
+FROM debian:11-slim AS builder
 
 ARG REDIS_TIME_SERIES_VERSION
 ENV REDIS_TIME_SERIES_VERSION=${REDIS_TIME_SERIES_VERSION}
