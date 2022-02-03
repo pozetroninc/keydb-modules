@@ -3,7 +3,7 @@
 # https://github.com/antirez/neural-redis/blob/master/COPYING
 #----------------------------------------------------------------------------------------------
 # Versions
-ARG KEY_DB_VERSION=v6.0.18
+ARG KEY_DB_VERSION=v6.2.2
 ARG REDIS_NEURAL_RELEASE=master
 
 ARG BUILD_BIN=/build/bin

@@ -3,7 +3,7 @@
 # https://github.com/brandur/redis-cell/blob/master/LICENSE
 #----------------------------------------------------------------------------------------------
 # Versions
-ARG KEY_DB_VERSION=v6.0.18
+ARG KEY_DB_VERSION=v6.2.2
 ARG REDIS_CELL_VERSION=v0.2.5
 
 ARG BUILD_BIN=/build/bin
