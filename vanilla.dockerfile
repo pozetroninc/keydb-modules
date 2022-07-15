@@ -1,5 +1,5 @@
 # Versions
-ARG KEY_DB_VERSION=v6.2.2
+ARG KEY_DB_VERSION=v6.3.1
 
 #----------------------------------------------------------------------------------------------
 # Straight KeyDB Image
